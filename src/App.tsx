@@ -26,17 +26,23 @@ export default function App() {
     }
   }, [distance])
 
+  const [speedText, setSpeedText] = useState(1);
+
+  useEffect(() => {
+    speed.current = speedText
+  }, [speedText])
+
   return (
     <div className='parent'>
       <div className='left'>
-        <label htmlFor="speed">Speed</label><br />
-        <input type="range" id="speed" name="speed" defaultValue="1" min="0" max="10" step="any" onChange={e => speed.current = +e.target.value} /><br />
+        <label htmlFor="speed">Speed: {speedText}</label><br />
+        <input type="range" id="speed" name="speed" defaultValue="1" min="0" max="10" step="0.01" onChange={e => setSpeedText(+e.target.value)} /><br />
 
-        <label htmlFor="repetitions">Repetitions</label><br />
+        <label htmlFor="repetitions">Repetitions: {repetitions}</label><br />
         <input type="range" id="repetitions" name="repetitions" defaultValue="1" min="0" max="10" step="1" onChange={e => setRepetitions(+e.target.value)} /><br />
 
-        <label htmlFor="distance">Distance</label><br />
-        <input type="range" id="distance" name="distance" defaultValue="1" min="0" max="20" step="any" onChange={e => setDistance(+e.target.value)} /><br />
+        <label htmlFor="distance">Distance: {distance}</label><br />
+        <input type="range" id="distance" name="distance" defaultValue="1" min="0" max="20" step="0.01" onChange={e => setDistance(+e.target.value)} /><br />
       </div>
       <div className='center'>
         <Canvas orthographic camera={{ zoom: 100, position: [0, 0, 20], left: -20, right: 20, bottom: -20, top: 20 }} style={{ background: "black" }} >

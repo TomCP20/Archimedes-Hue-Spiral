@@ -10,7 +10,8 @@ body {
 
 .left, .right {
   flex: 1;
-  align-self: center
+  align-self: center;
+  text-align: center;
 }
 
 .center {
