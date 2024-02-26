@@ -3,7 +3,12 @@ body {
   margin: 0;
 }
 
+h1 {
+  text-align: center;
+}
+
 .parent {
+  height: auto;
   display: flex;
   padding: 15px;
 }
@@ -18,4 +23,5 @@ body {
   width: 800px;
   height: 800px;
   margin: auto;
+  align-self: center;
 }
