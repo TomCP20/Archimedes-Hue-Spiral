@@ -1,6 +1,6 @@
 import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
-import { Mesh, Vector2 } from 'three';
+import { Mesh, ShaderMaterial, Vector2 } from 'three';
 import RainbowMaterial from '../materials/RainbowMaterial';
 
 
@@ -17,8 +17,8 @@ const UVs = new Float32Array([
   0.5, h
 ]);
 
-export default function Triangle(props: Readonly<{ position: [number, number, number]; size: number; spin: number; speed: number; }>) {
-  const { position, size, spin, speed } = props;
+export default function Triangle(props: Readonly<{ position: [number, number, number]; size: number; spin: number; myShader:  React.RefObject<ShaderMaterial>; speed:  React.MutableRefObject<number> }>) {
+  const { position, size, spin, myShader, speed } = props;
 
   const myMesh = useRef<Mesh>(null!);
 
@@ -40,7 +40,7 @@ export default function Triangle(props: Readonly<{ position: [number, number, nu
           count={UVs.length / 3}
           itemSize={2} />
       </bufferGeometry>
-      <RainbowMaterial center={new Vector2(0.5, h / 3.0)} speed={speed} />
+      <RainbowMaterial center={new Vector2(0.5, h / 3.0)} myShader={myShader} speed={speed} />
     </mesh>
   );
 }
