@@ -1,5 +1,6 @@
 {
   "name": "R3F-shader-animation",
+  "description": "Shader animation using React Three Fiber.",
   "private": true,
   "version": "0.0.0",
   "type": "module",
