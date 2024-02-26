@@ -5,8 +5,8 @@ import { DoubleSide, ShaderMaterial, Vector2 } from 'three';
 import fragmentShader from "../shaders/fragment.glsl";
 import vertexShader from "../shaders/vertex.glsl";
 
-export default function RainbowMaterial(props: Readonly<{ center: Vector2; myShader: React.RefObject<ShaderMaterial>; speed:  React.MutableRefObject<number> }>) {
-  const { center, myShader, speed } = props;
+export default function RainbowMaterial(props: Readonly<{ center: Vector2; myShader: React.RefObject<ShaderMaterial>; speedRef:  React.MutableRefObject<number> }>) {
+  const { center, myShader, speedRef } = props;
 
   const uniforms = useMemo(
     () => ({
@@ -28,7 +28,7 @@ export default function RainbowMaterial(props: Readonly<{ center: Vector2; mySha
 
   useFrame((_, delta ) => {
     if (myShader.current) {
-      myShader.current.uniforms.u_time.value += delta * speed.current;
+      myShader.current.uniforms.u_time.value += delta * speedRef.current;
     }
   });
 
