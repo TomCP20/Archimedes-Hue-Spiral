@@ -20,6 +20,6 @@ void main() {
   vec2 pos = vUv - vec2(0.5, H/3.0);
   float angle = (u_time + atan(pos.y, pos.x)) / (2.0 * M_PI);
   float radius = length(pos);
-  vec3 rgb = hueToRGB(angle-radius);
+  vec3 rgb = hueToRGB(angle-radius*2.0);
   gl_FragColor = vec4(rgb, 1.0);
 }
