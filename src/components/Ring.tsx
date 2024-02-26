@@ -1,10 +1,10 @@
 import { useFrame } from '@react-three/fiber';
 import Triangle from './Triangle';
 import { useRef } from 'react';
-import { Group } from 'three';
+import { Group, ShaderMaterial } from 'three';
 
-export default function Ring(props: Readonly<{ items: number; radius: number; size: number; spin: number; }>) {
-  const { items, radius, size, spin } = props;
+export default function Ring(props: Readonly<{ items: number; radius: number; size: number; spin: number; myShader: React.RefObject<ShaderMaterial>; speed:  React.MutableRefObject<number> }>) {
+  const { items, radius, size, spin, myShader, speed } = props;
   const mygroup = useRef<Group>(null!)
 
   useFrame(({ clock }) => {
@@ -19,7 +19,7 @@ export default function Ring(props: Readonly<{ items: number; radius: number; si
 
   return (
     <group ref={mygroup}>
-      {[...Array(items).keys()].map(i => <Triangle key={i} size={size} position={getPos(i)} spin={spin} />)}
+      {[...Array(items).keys()].map(i => <Triangle key={i} size={size} position={getPos(i)} spin={spin} myShader={myShader} speed={speed} />)}
     </group>
   );
 
