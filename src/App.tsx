@@ -1,8 +1,8 @@
-import { Canvas } from '@react-three/fiber'
 import "./style.css"
-import Triangle from './components/Triangle';
 import { useEffect, useRef, useState } from 'react';
 import { ShaderMaterial } from 'three';
+import { Slider } from './components/Slider';
+import { Scene } from './components/Scene';
 
 export default function App() {
 
@@ -37,24 +37,15 @@ export default function App() {
       <h1>Archemidies spiral</h1>
       <div className='parent'>
         <div className='left'>
-          <label htmlFor="speed">Speed: {speedText}</label><br />
-          <input type="range" id="speed" name="speed" defaultValue="1" min="0" max="10" step="0.01" onChange={e => setSpeedText(+e.target.value)} /><br />
-
-          <label htmlFor="repetitions">Repetitions: {repetitions}</label><br />
-          <input type="range" id="repetitions" name="repetitions" defaultValue="1" min="0" max="10" step="1" onChange={e => setRepetitions(+e.target.value)} /><br />
-
-          <label htmlFor="distance">Distance: {distance}</label><br />
-          <input type="range" id="distance" name="distance" defaultValue="1" min="0" max="20" step="0.01" onChange={e => setDistance(+e.target.value)} /><br />
+          <Slider name={"speed"} min={0} max={10} step={0.01} val={speedText} setVal={setSpeedText} />
+          <Slider name={"repetitions"} min={0} max={10} step={1} val={repetitions} setVal={setRepetitions} />
+          <Slider name={"distance"} min={0} max={20} step={0.01} val={distance} setVal={setDistance} />
         </div>
         <div className='center'>
-          <Canvas orthographic camera={{ zoom: 100, position: [0, 0, 20], left: -20, right: 20, bottom: -20, top: 20 }} style={{ background: "black" }} >
-            <ambientLight />
-            <Triangle position={[0, 0, 0]} size={5} spin={0} myShader={myShader} speed={speed} />
-          </Canvas>
+          <Scene myShader={myShader} speed={speed} />
         </div>
-        <div className='right'></div>
+        <div className='right' />
       </div>
     </>
   )
 }
-
