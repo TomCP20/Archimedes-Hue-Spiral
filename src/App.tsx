@@ -34,7 +34,7 @@ export default function App() {
 
   return (
     <>
-      <h1>Archemidies spiral</h1>
+      <h1>Archimedes spiral</h1>
       <div className='parent'>
         <div className='left'>
           <Slider name={"speed"} min={0} max={10} step={0.01} val={speed} setVal={setSpeed} />
