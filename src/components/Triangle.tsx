@@ -1,6 +1,6 @@
 import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
-import { Mesh } from 'three';
+import { Mesh, Vector2 } from 'three';
 import RainbowMaterial from './RainbowMaterial';
 
 
@@ -39,7 +39,7 @@ export default function Triangle(props: Readonly<{ position: [number, number, nu
           count={UVs.length / 3}
           itemSize={2} />
       </bufferGeometry>
-      <RainbowMaterial />
+      <RainbowMaterial center={new Vector2(0.5, h/3.0)} />
     </mesh>
   );
 }
