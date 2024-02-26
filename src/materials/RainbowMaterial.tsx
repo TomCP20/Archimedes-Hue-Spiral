@@ -5,31 +5,34 @@ import { DoubleSide, ShaderMaterial, Vector2 } from 'three';
 import fragmentShader from "../shaders/fragment.glsl";
 import vertexShader from "../shaders/vertex.glsl";
 
-export default function RainbowMaterial(props: Readonly<{center: Vector2}>) {
+export default function RainbowMaterial(props: Readonly<{ center: Vector2, speed: number }>) {
+  const { center, speed } = props;
+
   const myShader = useRef<ShaderMaterial>(null!);
 
   const uniforms = useMemo(
     () => ({
       u_time: {
-        value: 0,
+        value: 0.0,
       },
       u_speed: {
-        value: 2
+        value: 1.0
       },
       u_repetitions: {
-        value: 3
+        value: 3.0
       },
       u_distance: {
-        value: 2
+        value: 2.0
       },
       u_center: {
-        value: props.center
+        value: center
       }
-    }), []
+    }), [center]
   );
 
   useFrame(({ clock }) => {
     myShader.current.uniforms.u_time.value = clock.getElapsedTime();
+    myShader.current.uniforms.u_speed.value = speed;
   });
 
   return (<shaderMaterial

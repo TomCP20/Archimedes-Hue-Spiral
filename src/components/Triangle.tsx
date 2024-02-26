@@ -1,15 +1,15 @@
 import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 import { Mesh, Vector2 } from 'three';
-import RainbowMaterial from './RainbowMaterial';
+import RainbowMaterial from '../materials/RainbowMaterial';
 
 
-const h = Math.sqrt(3)/2;
+const h = Math.sqrt(3) / 2;
 
 const positions = new Float32Array([
-  0.5, -h/3, 0,
-  -0.5, -h/3, 0,
-  0, 2*h/3, 0
+  0.5, -h / 3, 0,
+  -0.5, -h / 3, 0,
+  0, 2 * h / 3, 0
 ]);
 const UVs = new Float32Array([
   1, 0,
@@ -17,16 +17,17 @@ const UVs = new Float32Array([
   0.5, h
 ]);
 
-export default function Triangle(props: Readonly<{ position: [number, number, number]; size: number; spin: number; }>) {
+export default function Triangle(props: Readonly<{ position: [number, number, number]; size: number; spin: number; speed: number; }>) {
+  const { position, size, spin, speed } = props;
+
   const myMesh = useRef<Mesh>(null!);
 
-
   useFrame(({ clock }) => {
-    myMesh.current.rotation.z = props.spin * clock.getElapsedTime();
+    myMesh.current.rotation.z = spin * clock.getElapsedTime();
   })
 
   return (
-    <mesh ref={myMesh} position={props.position} scale={props.size}>
+    <mesh ref={myMesh} position={position} scale={size}>
       <bufferGeometry>
         <bufferAttribute
           attach='attributes-position'
@@ -39,7 +40,7 @@ export default function Triangle(props: Readonly<{ position: [number, number, nu
           count={UVs.length / 3}
           itemSize={2} />
       </bufferGeometry>
-      <RainbowMaterial center={new Vector2(0.5, h/3.0)} />
+      <RainbowMaterial center={new Vector2(0.5, h / 3.0)} speed={speed} />
     </mesh>
   );
 }
