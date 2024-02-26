@@ -27,8 +27,8 @@ export default function App() {
   }, [distance])
 
   return (
-    <>
-      <div>
+    <div className='parent'>
+      <div className='left'>
         <label htmlFor="speed">Speed</label><br />
         <input type="range" id="speed" name="speed" defaultValue="1" min="0" max="10" step="any" onChange={e => speed.current = +e.target.value} /><br />
 
@@ -38,13 +38,14 @@ export default function App() {
         <label htmlFor="distance">Distance</label><br />
         <input type="range" id="distance" name="distance" defaultValue="1" min="0" max="20" step="any" onChange={e => setDistance(+e.target.value)} /><br />
       </div>
-      <div style={{ width: "800px", height: "800px", margin: "auto" }}>
+      <div className='center'>
         <Canvas orthographic camera={{ zoom: 100, position: [0, 0, 20], left: -20, right: 20, bottom: -20, top: 20 }} style={{ background: "black" }} >
           <ambientLight />
           <Triangle position={[0, 0, 0]} size={5} spin={0} myShader={myShader} speed={speed} />
         </Canvas>
       </div>
-    </>
+      <div className='right'></div>
+    </div>
   )
 }
 

@@ -2,3 +2,18 @@ html,
 body {
   margin: 0;
 }
+
+.parent {
+  display: flex;
+  padding: 15px;
+}
+
+.left, .right {
+  flex: 1;
+}
+
+.center {
+  width: 800px;
+  height: 800px;
+  margin: auto;
+}
