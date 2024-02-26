@@ -14,7 +14,7 @@ const positions = new Float32Array([
 const UVs = new Float32Array([
   1, 0,
   0, 0,
-  0.5, 1
+  0.5, h
 ]);
 
 export default function Triangle(props: Readonly<{ position: [number, number, number]; size: number; spin: number; }>) {

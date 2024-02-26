@@ -3,6 +3,7 @@ varying vec2 vUv;
 uniform float u_time;
 
 #define M_PI 3.1415926535897932384626433832795
+#define H 0.86602540378
 
 vec3 hueToRGB(float hue)
 {
@@ -16,8 +17,9 @@ vec3 hueToRGB(float hue)
 }
 
 void main() {
-  
-  float angle = (u_time + atan(vUv.y-(1.0/3.0), vUv.x-0.5)) / (2.0 * M_PI);
-  vec3 rgb = hueToRGB(angle);
+  vec2 pos = vUv - vec2(0.5, H/3.0);
+  float angle = (u_time + atan(pos.y, pos.x)) / (2.0 * M_PI);
+  float radius = length(pos);
+  vec3 rgb = hueToRGB(angle-radius);
   gl_FragColor = vec4(rgb, 1.0);
 }
