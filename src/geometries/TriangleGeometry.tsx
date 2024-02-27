@@ -1,17 +1,17 @@
 const h = Math.sqrt(3) / 2;
 
-export const positions = new Float32Array([
+const positions = new Float32Array([
   0.5, -h / 3, 0,
   -0.5, -h / 3, 0,
   0, 2 * h / 3, 0
 ]);
-export const UVs = new Float32Array([
+const UVs = new Float32Array([
   1, 0,
   0, 0,
   0.5, h
 ]);
 
-export function TriangleGeometry() {
+export default function TriangleGeometry() {
   return (
     <bufferGeometry>
       <bufferAttribute

@@ -2,7 +2,7 @@ import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 import { Mesh, ShaderMaterial, Vector2 } from 'three';
 import RainbowMaterial from '../materials/RainbowMaterial';
-import { TriangleGeometry } from '../geometries/TriangleGeometry';
+import TriangleGeometry from '../geometries/TriangleGeometry';
 
 
 const h = Math.sqrt(3) / 2;
