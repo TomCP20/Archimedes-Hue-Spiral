@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber';
-import RainbowTriangle from './RainbowTriangle';
+import RainbowTriangle from '../objects/RainbowTriangle';
 import { ShaderMaterial } from 'three';
 
 export function Scene(props: Readonly<{ myShader: React.RefObject<ShaderMaterial>; speedRef: React.MutableRefObject<number>; }>) {
