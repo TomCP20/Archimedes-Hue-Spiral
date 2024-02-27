@@ -1,9 +1,8 @@
-varying vec2 vUv;
+varying vec2 pos;
 
 uniform float u_time;
 uniform float u_repetitions;
 uniform float u_distance;
-uniform vec2 u_center;
 
 #define M_PI 3.1415926535897932384626433832795
 #define H 0.86602540378
@@ -20,7 +19,6 @@ vec3 hueToRGB(float hue)
 }
 
 void main() {
-  vec2 pos = vUv - u_center;
   float angle = (u_time + atan(pos.y, pos.x)) / (2.0 * M_PI);
   float radius = length(pos);
   vec3 rgb = hueToRGB(angle*u_repetitions-radius*u_distance);
