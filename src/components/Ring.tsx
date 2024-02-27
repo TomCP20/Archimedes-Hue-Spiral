@@ -1,5 +1,5 @@
 import { useFrame } from '@react-three/fiber';
-import Triangle from './Triangle';
+import RainbowTriangle from './RainbowTriangle';
 import { useRef } from 'react';
 import { Group, ShaderMaterial } from 'three';
 
@@ -19,7 +19,7 @@ export default function Ring(props: Readonly<{ items: number; radius: number; si
 
   return (
     <group ref={mygroup}>
-      {[...Array(items).keys()].map(i => <Triangle key={i} size={size} position={getPos(i)} spin={spin} myShader={myShader} speed={speed} />)}
+      {[...Array(items).keys()].map(i => <RainbowTriangle key={i} size={size} position={getPos(i)} spin={spin} myShader={myShader} speed={speed} />)}
     </group>
   );
 
