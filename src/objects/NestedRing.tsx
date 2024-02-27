@@ -1,7 +1,12 @@
 import { ShaderMaterial } from 'three';
 import Ring from './Ring';
 
-export default function NestedRing(props: Readonly<{myShader:  React.RefObject<ShaderMaterial>; speedRef:  React.MutableRefObject<number>}>) {
+interface NestedRingProps {
+  myShader: React.RefObject<ShaderMaterial>;
+  speedRef: React.MutableRefObject<number>;
+}
+
+export default function NestedRing(props: Readonly<NestedRingProps>) {
   const {myShader, speedRef} = props;
   return (
     <>

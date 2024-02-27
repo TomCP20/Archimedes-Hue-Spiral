@@ -3,7 +3,16 @@ import RainbowTriangle from './RainbowTriangle';
 import { useRef } from 'react';
 import { Group, ShaderMaterial } from 'three';
 
-export default function Ring(props: Readonly<{ items: number; radius: number; size: number; spin: number; myShader: React.RefObject<ShaderMaterial>; speedRef:  React.MutableRefObject<number> }>) {
+interface RingProps {
+  items: number;
+  radius: number;
+  size: number;
+  spin: number;
+  myShader: React.RefObject<ShaderMaterial>;
+  speedRef: React.MutableRefObject<number>;
+}
+
+export default function Ring(props: Readonly<RingProps>) {
   const { items, radius, size, spin, myShader, speedRef } = props;
   const mygroup = useRef<Group>(null!)
 

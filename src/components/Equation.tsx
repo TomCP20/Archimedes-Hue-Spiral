@@ -1,4 +1,4 @@
-export function Equation() {
+export default function Equation() {
   return <div className="equation">
     <h2>Equation</h2>
     <p>hue=frac((time+angle)*repetitions-radius*distance)</p>

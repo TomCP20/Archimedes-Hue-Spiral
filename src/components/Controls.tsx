@@ -1,8 +1,13 @@
 import { useEffect, useState } from 'react';
 import { ShaderMaterial } from 'three';
-import { Slider } from './Slider';
+import Slider from './Slider';
 
-export function Controls(props: Readonly<{ myShader: React.RefObject<ShaderMaterial>; speedRef: React.MutableRefObject<number>; }>) {
+interface ControlsProps {
+  myShader: React.RefObject<ShaderMaterial>;
+  speedRef: React.MutableRefObject<number>;
+}
+
+export default function Controls(props: Readonly<ControlsProps>) {
 
   const { myShader, speedRef } = props;
 

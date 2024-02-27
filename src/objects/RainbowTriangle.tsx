@@ -7,7 +7,15 @@ import TriangleGeometry from '../geometries/TriangleGeometry';
 
 const h = Math.sqrt(3) / 2;
 
-export default function RainbowTriangle(props: Readonly<{ position: [number, number, number]; size: number; spin: number; myShader: React.RefObject<ShaderMaterial>; speedRef: React.MutableRefObject<number> }>) {
+interface RainbowTriangleProps {
+  position: [number, number, number];
+  size: number;
+  spin: number;
+  myShader: React.RefObject<ShaderMaterial>;
+  speedRef: React.MutableRefObject<number>;
+}
+
+export default function RainbowTriangle(props: Readonly<RainbowTriangleProps>) {
   const { position, size, spin, myShader, speedRef } = props;
 
   const myMesh = useRef<Mesh>(null!);

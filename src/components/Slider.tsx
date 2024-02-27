@@ -1,4 +1,14 @@
-export function Slider(props: Readonly<{ name: string; min: number; max: number; step: number; ticks: number[]; val: number; setVal: React.Dispatch<React.SetStateAction<number>>; }>) {
+interface SliderProps {
+  name: string;
+  min: number;
+  max: number;
+  step: number;
+  ticks: number[];
+  val: number;
+  setVal: React.Dispatch<React.SetStateAction<number>>;
+}
+
+export default function Slider(props: Readonly<SliderProps>) {
   const { name, min, max, step, ticks, val, setVal } = props;
   return (
     <>

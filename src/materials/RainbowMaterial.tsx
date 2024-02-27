@@ -5,7 +5,13 @@ import { DoubleSide, ShaderMaterial, Vector2 } from 'three';
 import fragmentShader from "../shaders/fragment.glsl";
 import vertexShader from "../shaders/vertex.glsl";
 
-export default function RainbowMaterial(props: Readonly<{ center: Vector2; myShader: React.RefObject<ShaderMaterial>; speedRef:  React.MutableRefObject<number> }>) {
+interface RainbowMaterialProps {
+  center: Vector2;
+  myShader: React.RefObject<ShaderMaterial>;
+  speedRef: React.MutableRefObject<number>;
+}
+
+export default function RainbowMaterial(props: Readonly<RainbowMaterialProps>) {
   const { center, myShader, speedRef } = props;
 
   const uniforms = useMemo(

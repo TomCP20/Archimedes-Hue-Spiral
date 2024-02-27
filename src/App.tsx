@@ -1,9 +1,9 @@
 import "./style.css"
 import { useRef } from 'react';
 import { ShaderMaterial } from 'three';
-import { Scene } from './components/Scene';
-import { Equation } from "./components/Equation";
-import { Controls } from "./components/Controls";
+import Scene from './components/Scene';
+import Equation from "./components/Equation";
+import Controls from "./components/Controls";
 
 export default function App() {
 
