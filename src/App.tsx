@@ -13,7 +13,7 @@ export default function App() {
 
   return (
     <>
-      <h1>Archimedes spiral</h1>
+      <h1>Archimedes Hue Spiral</h1>
       <div className='parent'>
         <div className='left'>
           <Controls myShader={myShader} speedRef={speedRef} />
