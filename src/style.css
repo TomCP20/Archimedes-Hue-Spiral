@@ -19,9 +19,26 @@ h1 {
   text-align: center;
 }
 
+.equation {
+  width: max-content;
+  margin: auto;
+}
+
 .center {
   width: 800px;
   height: 800px;
   margin: auto;
   align-self: center;
+}
+
+dl {
+  text-align: left;
+}
+
+dt {
+  font-weight: bold;
+}
+
+dd {
+  margin-bottom: 1em;
 }
