@@ -1,5 +1,5 @@
 export default function Equation() {
-  return <div className="equation">
+  return <div className="equation panel">
     <h2>Equation</h2>
     <p>hue=frac((time+angle)*repetitions-radius*distance)</p>
     <h3>Definitions</h3>
