@@ -3,8 +3,8 @@ import RainbowTriangle from './RainbowTriangle';
 import { useRef } from 'react';
 import { Group, ShaderMaterial } from 'three';
 
-export default function Ring(props: Readonly<{ items: number; radius: number; size: number; spin: number; myShader: React.RefObject<ShaderMaterial>; speed:  React.MutableRefObject<number> }>) {
-  const { items, radius, size, spin, myShader, speed } = props;
+export default function Ring(props: Readonly<{ items: number; radius: number; size: number; spin: number; myShader: React.RefObject<ShaderMaterial>; speedRef:  React.MutableRefObject<number> }>) {
+  const { items, radius, size, spin, myShader, speedRef } = props;
   const mygroup = useRef<Group>(null!)
 
   useFrame(({ clock }) => {
@@ -19,7 +19,7 @@ export default function Ring(props: Readonly<{ items: number; radius: number; si
 
   return (
     <group ref={mygroup}>
-      {[...Array(items).keys()].map(i => <RainbowTriangle key={i} size={size} position={getPos(i)} spin={spin} myShader={myShader} speed={speed} />)}
+      {[...Array(items).keys()].map(i => <RainbowTriangle key={i} size={size} position={getPos(i)} spin={spin} myShader={myShader} speedRef={speedRef} />)}
     </group>
   );
 
