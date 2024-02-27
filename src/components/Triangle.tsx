@@ -2,22 +2,12 @@ import { useFrame } from '@react-three/fiber';
 import { useRef } from 'react';
 import { Mesh, ShaderMaterial, Vector2 } from 'three';
 import RainbowMaterial from '../materials/RainbowMaterial';
+import { TriangleGeometry } from '../geometries/TriangleGeometry';
 
 
 const h = Math.sqrt(3) / 2;
 
-const positions = new Float32Array([
-  0.5, -h / 3, 0,
-  -0.5, -h / 3, 0,
-  0, 2 * h / 3, 0
-]);
-const UVs = new Float32Array([
-  1, 0,
-  0, 0,
-  0.5, h
-]);
-
-export default function Triangle(props: Readonly<{ position: [number, number, number]; size: number; spin: number; myShader:  React.RefObject<ShaderMaterial>; speedRef:  React.MutableRefObject<number> }>) {
+export default function Triangle(props: Readonly<{ position: [number, number, number]; size: number; spin: number; myShader: React.RefObject<ShaderMaterial>; speedRef: React.MutableRefObject<number> }>) {
   const { position, size, spin, myShader, speedRef } = props;
 
   const myMesh = useRef<Mesh>(null!);
@@ -28,20 +18,11 @@ export default function Triangle(props: Readonly<{ position: [number, number, nu
 
   return (
     <mesh ref={myMesh} position={position} scale={size}>
-      <bufferGeometry>
-        <bufferAttribute
-          attach='attributes-position'
-          array={positions}
-          count={positions.length / 3}
-          itemSize={3} />
-        <bufferAttribute
-          attach='attributes-uv'
-          array={UVs}
-          count={UVs.length / 3}
-          itemSize={2} />
-      </bufferGeometry>
+      <TriangleGeometry />
       <RainbowMaterial center={new Vector2(0.5, h / 3.0)} myShader={myShader} speedRef={speedRef} />
     </mesh>
   );
 }
+
+
 
