@@ -38,11 +38,13 @@ export default function App() {
       <h1>Archimedes spiral</h1>
       <div className='parent'>
         <div className='left'>
-          <h2>Controls</h2>
-          <Slider name={"speed"} min={0} max={10} step={0.01} val={speed} setVal={setSpeed} />
-          <Slider name={"repetitions"} min={0} max={10} step={1} val={repetitions} setVal={setRepetitions} />
-          <Slider name={"distance"} min={0} max={20} step={0.01} val={distance} setVal={setDistance} />
-          <button onClick={() => { setSpeed(1); setRepetitions(1); setDistance(1); }}>Reset</button>
+          <div className="controls">
+            <h2>Controls</h2>
+            <Slider name={"speed"} min={0} max={10} step={0.01} val={speed} setVal={setSpeed} />
+            <Slider name={"repetitions"} min={0} max={10} step={1} val={repetitions} setVal={setRepetitions} />
+            <Slider name={"distance"} min={0} max={20} step={0.01} val={distance} setVal={setDistance} />
+            <button onClick={() => { setSpeed(1); setRepetitions(1); setDistance(1); }}>Reset</button>
+          </div>
         </div>
         <div className='center'>
           <Scene myShader={myShader} speedRef={speedRef} />
