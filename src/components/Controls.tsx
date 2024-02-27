@@ -37,7 +37,7 @@ export default function Controls(props: Readonly<ControlsProps>) {
 
     <div className="controls">
       <h2>Controls</h2>
-      <Slider name={"speed"} min={-10} max={10} step={0.01} ticks={[-10, -1, 0, 1, 10]} val={speed} setVal={setSpeed} />
+      <Slider name={"speed"} min={-10} max={10} step={0.01} ticks={[-10, -5, -1, 0, 1, 5, 10]} val={speed} setVal={setSpeed} />
       <Slider name={"repetitions"} min={0} max={10} step={1} ticks={[0, 1, 10]} val={repetitions} setVal={setRepetitions} />
       <Slider name={"distance"} min={-20} max={20} step={0.01} ticks={[-20, -1, 0, 1, 20]} val={distance} setVal={setDistance} />
       <button onClick={() => { setSpeed(1); setRepetitions(1); setDistance(1); }}>Reset</button>
