@@ -1,37 +1,32 @@
 import { useEffect, useState } from 'react';
-import { ShaderMaterial } from 'three';
 import Slider from './Slider';
+import { Settings } from '../interfaces/settings';
 
 interface ControlsProps {
-  myShader: React.RefObject<ShaderMaterial>;
-  speedRef: React.MutableRefObject<number>;
+  settings: React.MutableRefObject<Settings>
 }
 
 export default function Controls(props: Readonly<ControlsProps>) {
 
-  const { myShader, speedRef } = props;
+  const { settings } = props;
 
   const [speed, setSpeed] = useState(1);
 
   useEffect(() => {
-    speedRef.current = speed;
-  }, [speed, speedRef]);
+    settings.current.speed = speed;
+  }, [settings, speed]);
 
   const [repetitions, setRepetitions] = useState(1);
 
   useEffect(() => {
-    if (myShader.current) {
-      myShader.current.uniforms.u_repetitions.value = repetitions;
-    }
-  }, [myShader, repetitions]);
+    settings.current.repetitions = repetitions;
+  }, [settings, repetitions]);
 
   const [distance, setDistance] = useState(1);
 
   useEffect(() => {
-    if (myShader.current) {
-      myShader.current.uniforms.u_distance.value = distance;
-    }
-  }, [distance, myShader]);
+    settings.current.distance = distance;
+  }, [settings, distance]);
 
   return (
 
