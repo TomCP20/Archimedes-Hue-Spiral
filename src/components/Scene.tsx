@@ -1,6 +1,6 @@
 import { Canvas } from '@react-three/fiber';
 import RainbowTriangle from '../objects/RainbowTriangle';
-import { Settings } from '../interfaces/settings';
+import { Settings } from '../interfaces/Settings';
 
 interface SceneProps {
   settings: React.MutableRefObject<Settings>

@@ -1,5 +1,5 @@
 import Slider from './Slider';
-import { Settings } from '../interfaces/settings';
+import { Settings } from '../interfaces/Settings';
 
 interface ControlsProps {
   settings: React.MutableRefObject<Settings>

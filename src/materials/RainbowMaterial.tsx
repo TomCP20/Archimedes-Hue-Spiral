@@ -4,7 +4,7 @@ import { DoubleSide, ShaderMaterial, Vector2 } from 'three';
 
 import fragmentShader from "../shaders/fragment.glsl";
 import vertexShader from "../shaders/vertex.glsl";
-import { Settings } from '../interfaces/settings';
+import { Settings } from '../interfaces/Settings';
 
 interface RainbowMaterialProps {
   center: Vector2;

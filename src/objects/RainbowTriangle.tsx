@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import { Mesh, Vector2 } from 'three';
 import RainbowMaterial from '../materials/RainbowMaterial';
 import TriangleGeometry from '../geometries/TriangleGeometry';
-import { Settings } from '../interfaces/settings';
+import { Settings } from '../interfaces/Settings';
 
 
 const h = Math.sqrt(3) / 2;

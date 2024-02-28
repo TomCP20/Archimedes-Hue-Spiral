@@ -3,7 +3,7 @@ import { useRef } from 'react';
 import Scene from './components/Scene';
 import Equation from "./components/Equation";
 import Controls from "./components/Controls";
-import { Settings } from "./interfaces/settings";
+import { Settings } from "./interfaces/Settings";
 
 
 export default function App() {

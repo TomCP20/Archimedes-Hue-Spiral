@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Settings } from "../interfaces/settings";
+import { Settings } from "../interfaces/Settings";
 
 interface SliderProps {
   name: keyof Settings;
