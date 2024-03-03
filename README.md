@@ -1,3 +1,5 @@
-# R3F-shader-animation
+# Archimedes Hue Spiral
 
-Shader animation using React Three Fiber.
+A shader animation using React Three Fiber.
+
+It combines Archimedes Spiral with a rainbow conic gradient.
