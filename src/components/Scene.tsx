@@ -1,5 +1,5 @@
 import { Canvas } from '@react-three/fiber';
-import RainbowTriangle from '../objects/RainbowTriangle';
+import RainbowSpiral from '../objects/RainbowSpiral';
 import { Settings } from '../interfaces/Settings';
 
 interface SceneProps {
@@ -9,9 +9,9 @@ interface SceneProps {
 export default function Scene(props: Readonly<SceneProps>) {
   const { settings } = props;
   return (
-    <Canvas orthographic camera={{ zoom: 100, position: [0, 0, 20], left: -20, right: 20, bottom: -20, top: 20 }} style={{ background: "black" }}>
+    <Canvas orthographic camera={{ zoom: 100, position: [0, 0, 1], left: -1, right: 1, bottom: -1, top: 1 }} style={{ background: "black" }}>
       <ambientLight />
-      <RainbowTriangle position={[0, 0, 0]} size={5} spin={0} settings={settings} />
+      <RainbowSpiral position={[0, 0, 0]} settings={settings} />
     </Canvas>
   );
 }
