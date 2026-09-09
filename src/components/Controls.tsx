@@ -15,7 +15,6 @@ export default function Controls(props: Readonly<ControlsProps>) {
       <Slider name={"speed"} min={-10} max={10} step={0.01} ticks={[-10, -5, -1, 0, 1, 5, 10]} settings={settings} />
       <Slider name={"repetitions"} min={0} max={10} step={1} ticks={[0, 1, 10]} settings={settings} />
       <Slider name={"distance"} min={-20} max={20} step={0.01} ticks={[-20, -1, 0, 1, 20]} settings={settings} />
-      <button onClick={() => { settings.current = { speed: 1, repetitions: 1, distance: 1 } }}>Reset All</button>
     </div>
   );
 }
